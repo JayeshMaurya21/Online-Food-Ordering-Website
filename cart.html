@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" type="text/css" href="cart.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" >
+    </head>
+    <body>
+
+        <div class="container">
+            <h1>Shopping Cart</h1>
+            <div class="cart">
+             <div class="products">
+             <div class="product" id="img1">
+                 <img src="C:\Users\ADMIN\Desktop\Online food website\food website\images\dish-1.png">
+                 <div class="product-info" >
+                     <h3 class="product-name">Big Burger</h3>
+                     <h4 class="product-price" id="price1"title="2000">$ 2,000</h4>
+                     <h4 class="product-offer">50%</h4>
+                     <p class="product-quantity">Qnt:<input value="0"
+                        name="" id="qnty1"  title="0" onchange="calquntity('qnty1','price1')">
+                        <p class="product-remove">
+                         <i class="fa-solid fa-trash-can"></i>
+                         <span class="remove" onclick="showhide('img1','qnty1','price1')">Remove</span>
+                        </p>
+                    </div>
+             </div>
+             <div class="product"  id="img2">
+                <img src="C:\Users\ADMIN\Desktop\Online food website\food website\images\dish-2.png">
+                <div class="product-info">
+                    <h3 class="product-name">Fries</h3>
+                    <h4 class="product-price"id="price2" title="1000">$ 1,000</h4>
+                    <h4 class="product-offer">40%</h4>
+                    <p class="product-quantity">Qnt:<input value="0"
+                       name="" id="qnty2" title="0" onchange="calquntity('qnty2','price2')">
+                       <p class="product-remove">
+                           <i class="fa-solid fa-circle-trash"></i>
+                           <span class="remove" onclick="showhide('img2','qnty2','price2')">Remove</span>
+                       </p>
+                   </div>
+            </div>
+        
+        <div class="product"  id="img3">
+            <img src="C:\Users\ADMIN\Desktop\Online food website\food website\images\dish-3.png">
+            <div class="product-info">
+                <h3 class="product-name">Chicken</h3>
+                <h4 class="product-price" id="price3" title="5000">$ 5,000</h4>
+                <h4 class="product-offer">30%</h4>
+                <p class="product-quantity">Qnt:<input value="0"
+                   name="" id="qnty3" title="0" onchange="calquntity('qnty3','price3')">
+                   <p class="product-remove">
+                       <i class="fa-solid fa-circle-trash"></i>
+                       <span class="remove" onclick="showhide('img3','qnty3','price3')">Remove</span>
+                   </p>
+               </div>
+        </div>
+   
+    <div class="product" id="img4">
+        <img src="C:\Users\ADMIN\Desktop\Online food website\food website\images\dish-4.png">
+        <div class="product-info">
+            <h3 class="product-name">Pizza</h3>
+            <h4 class="product-price" id="price4" title="4000">$ 4,000</h4>
+            <h4 class="product-offer">20%</h4>
+            <p class="product-quantity">Qnt:<input value="0"
+               name="" id="qnty4" title="0" onchange="calquntity('qnty4','price4')">
+               <p class="product-remove">
+                   <i class="fa-solid fa-circle-trash"></i>
+                   <span class="remove" onclick="showhide('img4', 'qnty4','price4')">Remove</span>
+               </p>
+           </div>
+    </div>
+
+<div class="product" id="img5">
+    <img src="C:\Users\ADMIN\Desktop\Online food website\food website\images\dish-5.png">
+    <div class="product-info" >
+        <h3 class="product-name">Chocolate cake</h3>
+        <h4 class="product-price" id="price5" title="1000">$ 1,000</h4>
+        <h4 class="product-offer">10%</h4>
+        <p class="product-quantity" >Qnt:<input value="0"
+           name="" id="qnty5" title="0" onchange="calquntity('qnty5','price5')">
+           <p class="product-remove">
+               <i class="fa-solid fa-circle-trash"></i>
+               <span class="remove" onclick="showhide('img5','qnty5','price5')">Remove</span>
+           </p>
+       </div>
+</div>
+
+<div class="product" id="img6">
+    <img src="C:\Users\ADMIN\Desktop\Online food website\food website\images\dish-6.png">
+    <div class="product-info">
+        <h3 class="product-name">Chicken wings</h3>
+        <h4 class="product-price" id="price6" title="2000">$ 2,000</h4>
+        <h4 class="product-offer">20%</h4>
+        <p class="product-quantity">Qnt:<input value="0"
+           name="" id="qnty6" title="0" onchange="calquntity('qnty6','price6')">
+           <p class="product-remove">
+               <i class="fa-solid fa-circle-trash"></i>
+               <span class="remove" onclick="showhide('img6', 'qnty6','price6')">Remove</span>
+           </p>
+       </div>
+</div>
+<!-- </div> -->
+            </div>
+
+<div class="cart-total">
+    <p>
+        <span >Total Price</span>
+        <span id="sptotal">$ 00,000 </span>
+    </p>
+    <p>
+       <span >Number of Items</span>
+       <span id="spnumberitems">6 </span>
+    </p>
+    <!-- <p>
+       <span>You Save</span>
+       <span>$ 1,000</span>
+    </p> -->
+    <a href="#" onclick="alert('Your order is successfully placed !!!!')">Proceed to Checkout</a>
+</div>
+</div>
+<!-- </div> -->
+
+</body>
+<script>  
+
+function showhide(img,qnty,price)
+{  
+var div = document.getElementById(img); 
+document.getElementById('spnumberitems').innerHTML = parseInt(document.getElementById('spnumberitems').innerText)-1; 
+delquntity(qnty,price);
+div.style.display = "none"; 
+} 
+
+function calquntity(qnty,price)
+{
+      var prevQnty = parseInt((document.getElementById(qnty).title));
+      var currQnty = parseInt((document.getElementById(qnty).value ));
+      if(currQnty!=0)
+      {
+
+if (prevQnty>currQnty)
+{
+    var totalamt= (parseInt((document.getElementById(qnty).title)) -parseInt((document.getElementById(qnty).value ))) * parseInt((document.getElementById(price).title));
+
+    document.getElementById('sptotal').innerText =  parseInt((document.getElementById('sptotal').innerText).substr(2).replaceAll(',','')) - totalamt;
+}
+else
+{
+    var totalamt= (parseInt((document.getElementById(qnty).value ))- parseInt((document.getElementById(qnty).title))) * parseInt((document.getElementById(price).title));
+
+    document.getElementById('sptotal').innerText =  parseInt((document.getElementById('sptotal').innerText).substr(2).replaceAll(',',''))+ totalamt;
+}
+
+document.getElementById(qnty).title = document.getElementById(qnty).value ;   
+
+document.getElementById('sptotal').innerText= '$ '+ document.getElementById('sptotal').innerText;
+
+}
+else{
+    alert('Quantity cannot be set to 0. Please Remove the Item or set Quantity more then 0');
+   document.getElementById(qnty).value =  document.getElementById(qnty).title  ;  
+}
+}
+
+function delquntity(qnty,price)
+{
+var totalamt= parseInt((document.getElementById(qnty).value )) * parseInt((document.getElementById(price).title));
+
+document.getElementById('sptotal').innerText =   parseInt((document.getElementById('sptotal').innerText).substr(2).replaceAll(',','')) - totalamt;
+document.getElementById('sptotal').innerText= '$ '+document.getElementById('sptotal').innerText;
+
+}
+</script>  
